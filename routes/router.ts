@@ -1,11 +1,26 @@
 
 import { Router, Request, Response } from 'express';
 import Server from '../classes/server';
-import { usuariosConectados } from '../sockets/socket';
+import { usuariosConectados, mapa } from '../sockets/socket';
 import { GraficaData } from '../classes/grafica';
+
 
 const router = Router();
 
+
+
+// Mapa
+router.get('/mapa', ( req: Request, res: Response  ) => {
+    res.json( mapa.getMarcadores() );
+});
+
+
+
+
+
+
+
+// Esto es de otras clases
 const grafica = new GraficaData();
 
 
